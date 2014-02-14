@@ -222,6 +222,13 @@ function acp#onBs()
   return "\<C-e>\<BS>"
 endfunction
 
+"
+function acp#meetsForTypeScriptOmni(context)
+  echo a:context
+  return exists("g:TSS") && g:acp_behaviorTypeScriptOmniLength >= 0 &&
+        \ a:context =~ '\k\.\k\{' . g:acp_behaviorTypeScriptOmniLength . ',}$'
+endfunction
+
 " }}}1
 "=============================================================================
 " LOCAL FUNCTIONS: {{{1

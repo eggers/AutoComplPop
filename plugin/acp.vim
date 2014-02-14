@@ -35,6 +35,7 @@ function s:makeDefaultBehavior()
         \   'html'   : [],
         \   'xhtml'  : [],
         \   'css'    : [],
+        \   'typescript': [],
         \ }
   "---------------------------------------------------------------------------
   if !empty(g:acp_behaviorUserDefinedFunction) &&
@@ -117,6 +118,12 @@ function s:makeDefaultBehavior()
         \   'repeat'  : 0,
         \ })
   "---------------------------------------------------------------------------
+  call add(behavs.typescript, {
+        \   'command' : "\<C-x>\<C-o>",
+        \   'meets'   : 'acp#meetsForTypeScriptOmni',
+        \   'repeat'  : 0,
+        \ })
+  "---------------------------------------------------------------------------
   return behavs
 endfunction
 
@@ -140,6 +147,7 @@ call s:defineOption('g:acp_behaviorFileLength', 0)
 call s:defineOption('g:acp_behaviorRubyOmniMethodLength', 0)
 call s:defineOption('g:acp_behaviorRubyOmniSymbolLength', 1)
 call s:defineOption('g:acp_behaviorPythonOmniLength', 0)
+call s:defineOption('g:acp_behaviorTypeScriptOmniLength', 0)
 call s:defineOption('g:acp_behaviorPerlOmniLength', -1)
 call s:defineOption('g:acp_behaviorXmlOmniLength', 0)
 call s:defineOption('g:acp_behaviorHtmlOmniLength', 0)
